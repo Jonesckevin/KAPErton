@@ -1,0 +1,17 @@
+Description: 'Custom Scripts to collect host data'
+Category: jones
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8a22
+BinaryUrl: See different tool Modules
+ExportFormat: ""
+Processors:
+
+    -
+        Executable: test1.mkape
+        CommandLine: ""
+        ExportFormat: ""
+    -
+        Executable: test2.mkape
+        CommandLine: ""
+        ExportFormat: ""

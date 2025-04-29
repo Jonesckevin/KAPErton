@@ -1,0 +1,12 @@
+Description: 'Custom Scripts to collect host data'
+Category: CustoM
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8b01
+ExportFormat: csv
+FileMask: $MFT
+Processors:
+    -
+        Executable: MFTECmd.exe
+        CommandLine: -f %destinationDirectory% --csv %destinationDirectory% --fl
+        ExportFormat: csv

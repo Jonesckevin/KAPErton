@@ -1,0 +1,13 @@
+Description: Logs all 4626/4625 to a csv via powershell
+Category: CustoM
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8b02
+ExportFormat: csv
+Processors:
+
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "Get-Content %sourceDirectory%\*\EventLogs\* | Select-String -Pattern ',4626,' -Context 0,0 | ForEach-Object { $_.Line } | Out-File -FilePath %destinationDirectory%\Temp_4626.txt; Get-Content %sourceDirectory%\*\EventLogs\* | Select-String -Pattern ',4625,' -Context 0,0 | ForEach-Object { $_.Line } | Out-File -FilePath %destinationDirectory%\Temp_4625.txt; Get-Content %destinationDirectory%\Temp_4626.txt, %destinationDirectory%\Temp_4625.txt | Sort-Object { ($_ -split ',')[0] } | Out-File -FilePath %destinationDirectory%\Success_And_Fail_Logons_evtx_4625_4626_Sorted.csv; Remove-Item %destinationDirectory%\Temp_4626.txt, %destinationDirectory%\Temp_4625.txt"
+        ExportFormat: csv
+

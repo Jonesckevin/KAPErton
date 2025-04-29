@@ -1,0 +1,1027 @@
+Description: Jones
+Author: Jones
+Version: 1
+Id: 830b8628-83f4-4be1-b51b-a33687086e8b
+RecreateDirectories: true
+Targets:
+# OpenSSH
+    -
+        Name: OpenSSH Config File
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'config'
+        Comment: "Config file can hold usernames, IP addresses and ports, key locations and configured shortcuts for servers e.g. ssh web-server"
+    -
+        Name: OpenSSH Known Hosts
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'known_hosts'
+        Comment: "Known hosts file can hold a list of connected FQDNs/IP Addresses and ports if they are non-default, as well as public key fingerprints"
+    -
+        Name: OpenSSH Public Keys
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: '*.pub'
+        Comment: "Gets all public keys (*.pub). It is more difficult to find private keys as they typically do not have a file extension. However, the .pub files should be able to help find the private keys as they are typically named the same."
+    -
+        Name: OpenSSH Default RSA Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_rsa'
+        Comment: "Default name for an auto-generated SSH RSA private key"
+    -
+        Name: OpenSSH Default ECDSA Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_ecdsa'
+        Comment: "Default name for an auto-generated SSH ECDSA private key"
+    -
+        Name: OpenSSH Default ECDSA-SK Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_ecdsa_sk'
+        Comment: "Default name for an auto-generated SSH ECDSA private key using a Security Key"
+    -
+        Name: OpenSSH Default ED25519 Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_ed25519'
+        Comment: "Default name for an auto-generated SSH ED25519 private key"
+    -
+        Name: OpenSSH Default ED25519-SK Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_ed25519_sk'
+        Comment: "Default name for an auto-generated SSH ED25519 private key using a Security Key"
+    -
+        Name: OpenSSH Default DSA Private Key
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'id_dsa'
+        Comment: "Default name for an auto-generated SSH DSA private key"
+# OpenSSH Server
+    -
+        Name: OpenSSH Server Config File
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'sshd_config'
+        Comment: "Config file can hold information on allowed/denied users"
+    -
+        Name: OpenSSH Server Logs
+        Category: Apps
+        Path: C:\ProgramData\ssh\logs\
+        FileMask: '*'
+        Comment: "OpenSSH server logs"
+    -
+        Name: OpenSSH Host ECDSA Key
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'ssh_host_ecdsa_key'
+        Comment: "Retrieves the host ECDSA key"
+    -
+        Name: OpenSSH Host ED25519 Key
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'ssh_host_ed25519_key'
+        Comment: "Retrieves the host ED25519 key"
+    -
+        Name: OpenSSH Host DSA Key
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'ssh_host_dsa_key'
+        Comment: "Retrieves the host DSA key"
+    -
+        Name: OpenSSH Host RSA Key
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'ssh_host_rsa_key'
+        Comment: "Retrieves the host RSA key"
+    -
+        Name: OpenSSH User Authorized Keys
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'authorized_keys'
+        Comment: "Retrieves the user's authorised public keys"
+    -
+        Name: OpenSSH User Authorized Keys 2
+        Category: Apps
+        Path: C:\Users\%user%\.ssh\
+        FileMask: 'authorized_keys2'
+        Comment: "Retrieves the user's authorised public keys from the second file"
+    -
+        Name: OpenSSH Authorized Administrator Keys
+        Category: Apps
+        Path: C:\ProgramData\ssh\
+        FileMask: 'administrators_authorized_keys'
+        Comment: "Retrieves the administrator group's authorised public keys"
+# Browsers
+## Chrome
+    -
+        Name: Chrome bookmarks XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Bookmarks*
+    -
+        Name: Chrome Cookies XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Cookies*
+    -
+        Name: Chrome Current Session XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Current Session
+    -
+        Name: Chrome Current Tabs XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Current Tabs
+    -
+        Name: Chrome Favicons XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Favicons*
+    -
+        Name: Chrome History XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: History*
+    -
+        Name: Chrome Last Session XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Last Session
+    -
+        Name: Chrome Last Tabs XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Last Tabs
+    -
+        Name: Chrome Login Data XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Login Data
+    -
+        Name: Chrome Preferences XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Preferences
+    -
+        Name: Chrome Shortcuts XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Shortcuts*
+    -
+        Name: Chrome Top Sites XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Top Sites*
+    -
+        Name: Chrome Visited Links XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Visited Links
+    -
+        Name: Chrome Web Data XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\
+        FileMask: Web Data*
+    -
+        Name: Chrome bookmarks
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Bookmarks*
+    -
+        Name: Chrome Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        Recursive: true
+        FileMask: Cookies*
+    -
+        Name: Chrome Current Session
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Current Session
+    -
+        Name: Chrome Current Tabs
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Current Tabs
+    -
+        Name: Chrome Download Metadata
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: DownloadMetadata
+    -
+        Name: Chrome Extension Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Extension Cookies
+    -
+        Name: Chrome Favicons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Favicons*
+    -
+        Name: Chrome History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: History*
+    -
+        Name: Chrome Last Session
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Last Session
+    -
+        Name: Chrome Last Tabs
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Last Tabs
+    -
+        Name: Chrome Sessions Folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\Sessions\
+        Recursive: false
+    -
+        Name: Chrome Login Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Login Data
+    -
+        Name: Chrome Media History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Media History*
+    -
+        Name: Chrome Network Action Predictor
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Network Action Predictor
+    -
+        Name: Chrome Network Persistent State
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Network Persistent State
+    -
+        Name: Chrome Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Preferences
+    -
+        Name: Chrome Quota Manager
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: QuotaManager
+    -
+        Name: Chrome Reporting and NEL
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Reporting and NEL
+    -
+        Name: Chrome Shortcuts
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Shortcuts*
+    -
+        Name: Chrome Top Sites
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Top Sites*
+    -
+        Name: Chrome Trust Tokens
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Trust Tokens*
+    -
+        Name: Chrome SyncData Database
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\Sync Data
+        FileMask: SyncData.sqlite3
+    -
+        Name: Chrome Visited Links
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Visited Links
+    -
+        Name: Chrome Web Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\
+        FileMask: Web Data*
+    -
+        Name: Windows Protect Folder
+        Category: FileSystem
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Protect\*\
+        Recursive: true
+        Comment: "Required for offline decryption"
+## Edge
+    -
+        Name: Edge folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\
+        Recursive: true
+## FireFox
+    -
+        Name: Addons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: addons.sqlite*
+    -
+        Name: Bookmarks
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\weave\
+        FileMask: bookmarks.sqlite*
+    -
+        Name: Bookmarks
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\bookmarkbackups
+        Recursive: true
+    -
+        Name: Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: cookies.sqlite*
+    -
+        Name: Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: firefox_cookies.sqlite*
+    -
+        Name: Downloads
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: downloads.sqlite*
+    -
+        Name: Extensions
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: extensions.json
+    -
+        Name: Favicons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: favicons.sqlite*
+    -
+        Name: Form history
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: formhistory.sqlite*
+    -
+        Name: Permissions
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: permissions.sqlite*
+    -
+        Name: Places
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: places.sqlite*
+    -
+        Name: Protections
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: protections.sqlite*
+    -
+        Name: Search
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: search.sqlite*
+    -
+        Name: Signons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: signons.sqlite*
+    -
+        Name: Storage Sync
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: storage-sync.sqlite*
+    -
+        Name: Webappstore
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: webappstore.sqlite*
+    -
+        Name: Password
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: key*.db
+    -
+        Name: Password
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: signon*.*
+    -
+        Name: Password
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: logins.json
+    -
+        Name: Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: prefs.js
+    -
+        Name: Sessionstore
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\
+        FileMask: sessionstore*
+    -
+        Name: Sessionstore Folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Mozilla\Firefox\Profiles\*\sessionstore-backups
+        Recursive: true
+    -
+        Name: Places XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: places.sqlite*
+    -
+        Name: Downloads XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: downloads.sqlite*
+    -
+        Name: Form history XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: formhistory.sqlite*
+    -
+        Name: Cookies XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: cookies.sqlite*
+    -
+        Name: Signons XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: signons.sqlite*
+    -
+        Name: Webappstore XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: webappstore.sqlite*
+    -
+        Name: Favicons XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: favicons.sqlite*
+    -
+        Name: Addons XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: addons.sqlite*
+    -
+        Name: Search XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: search.sqlite*
+    -
+        Name: Password XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: key*.db
+    -
+        Name: Password XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: signon*.*
+    -
+        Name: Password XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: logins.json
+    -
+        Name: Sessionstore XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
+        FileMask: sessionstore*
+## Internet Explorer
+    -
+        Name: Index.dat History
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\History\History.IE5\
+        FileMask: index.dat
+    -
+        Name: Index.dat History subdirectory
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\History\History.IE5\*\
+        FileMask: index.dat
+    -
+        Name: Index.dat cookies
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Cookies\
+        FileMask: index.dat
+    -
+        Name: Index.dat UserData
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Microsoft\Internet Explorer\UserData\
+        FileMask: index.dat
+    -
+        Name: Index.dat Office XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Application Data\Microsoft\Office\Recent\
+        FileMask: index.dat
+    -
+        Name: Index.dat Office
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Office\Recent\
+        FileMask: index.dat
+    -
+        Name: Local Internet Explorer folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Internet Explorer\
+        Recursive: true
+    -
+        Name: Roaming Internet Explorer folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Internet Explorer\
+        Recursive: true
+    -
+        Name: IE 9/10 History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\History\
+        Recursive: true
+    -
+        Name: IE 9/10 Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\Cookies\
+        Recursive: true
+    -
+        Name: IE 9/10 Download History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\IEDownloadHistory\
+        Recursive: true
+    -
+        Name: IE 11 Metadata
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\WebCache\
+    -
+        Name: IE 11 Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\INetCookies\
+        Recursive: true
+# Powershell Commands
+    -
+        Name: PowerShell Console Log
+        Category: PowerShellConsoleLog
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\
+        FileMask: ConsoleHost_history.txt
+# Timeline
+    -
+        Name: ActivitiesCache.db
+        Category: FileFolderAccess
+        Path: C:\Users\%user%\AppData\Local\ConnectedDevicesPlatform\*\
+        FileMask: ActivitiesCache.db*
+    -
+        Name: $J
+        Category: FileSystem
+        Path: C:\$Extend\
+        FileMask: $UsnJrnl:$J
+        AlwaysAddToQueue: true
+        SaveAsFileName: $J
+    -
+        Name: $Max
+        Category: FileSystem
+        Path: C:\$Extend\
+        FileMask: $UsnJrnl:$Max
+        AlwaysAddToQueue: true
+        SaveAsFileName: $Max
+    -
+        Name: $J
+        Category: FileSystem
+        Path: C:\$Extend\
+        FileMask: $J
+        SaveAsFileName: $J
+        Comment: "This is for the use case when you're running this Target against a mounted VHDX with these files already pulled from a live system. The above Targets are looking for the files as an ADS whereas once they are already pulled they no longer match the ADS criteria and therefore are missed"
+    -
+        Name: $Max
+        Category: FileSystem
+        Path: C:\$Extend\
+        FileMask: $Max
+        SaveAsFileName: $Max
+        Comment: "This is for the use case when you're running this Target against a mounted VHDX with these files already pulled from a live system. The above Targets are looking for the files as an ADS whereas once they are already pulled they no longer match the ADS criteria and therefore are missed"
+    -
+        Name: $LogFile
+        Category: FileSystem
+        Path: C:\
+        FileMask: $LogFile
+        AlwaysAddToQueue: true
+    -
+        Name: $MFT
+        Category: FileSystem
+        Path: C:\
+        FileMask: $MFT
+        AlwaysAddToQueue: true
+    -
+        Name: $MFTMirr
+        Category: FileSystem
+        Path: C:\
+        FileMask: $MFTMirr
+        AlwaysAddToQueue: true
+        Comment: "$MFTMirr is a redundant copy of the first four (4) records of the MFT."
+    -
+        Name: Amcache
+        Category: ApplicationCompatibility
+        Path: 'C:\Windows*\AppCompat\Programs\'
+        FileMask: Amcache.hve
+    -
+        Name: Event logs XP
+        Category: EventLogs
+        Path: 'C:\Windows*\System32\config\'
+        FileMask: '*.evt'
+    -
+        Name: Event logs Win7+
+        Category: EventLogs
+        Path: 'C:\Windows*\System32\winevt\logs\'
+        FileMask: '*.evtx'
+# LNK
+    -
+        Name: LNK Files from Recent
+        Category: LNKFiles
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Windows\Recent\
+        Recursive: true
+        Comment: Also includes automatic and custom jumplist directories
+    -
+        Name: LNK Files from Microsoft Office Recent
+        Category: LNKFiles
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Office\Recent\
+        Recursive: true
+    -
+        Name: Start Menu LNK Files
+        Category: LNKFiles
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+        FileMask: '*.LNK'
+    -
+        Name: LNK Files from Recent (XP)
+        Category: LNKFiles
+        Path: C:\Documents and Settings\%user%\Recent\
+        Recursive: true
+    -
+        Name: Desktop LNK Files XP
+        Category: LNKFiles
+        Path: C:\Documents and Settings\%user%\Desktop\
+        FileMask: '*.LNK'
+    -
+        Name: Desktop LNK Files
+        Category: LNKFiles
+        Path: C:\Users\%user%\Desktop\
+        FileMask: '*.LNK'
+    -
+        Name: Restore point LNK Files XP
+        Category: LNKFiles
+        Path: C:\System Volume Information\_restore*\RP*\
+        FileMask: '*.LNK'
+    -
+        Name: LNK Files from C:\ProgramData
+        Category: LNKFiles
+        Path: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\
+        FileMask: '*.LNK'
+# PST OST
+    -
+        Name: PST XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Microsoft\Outlook\
+        FileMask: '*.pst'
+    -
+        Name: OST XP
+        Category: Communications
+        Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Microsoft\Outlook\
+        FileMask: '*.ost'
+    -
+        Name: PST (2013 or 2016)
+        Category: Communications
+        Path: C:\Users\%user%\Documents\Outlook Files\
+        FileMask: '*.pst'
+    -
+        Name: OST (2013 or 2016)
+        Category: Communications
+        Path: C:\Users\%user%\Documents\Outlook Files\
+        FileMask: '*.ost'
+    -
+        Name: PST
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Outlook\
+        FileMask: '*.pst'
+        Comment: "Outlook Data File: POP accounts, archives, older installations"
+    -
+        Name: OST
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Outlook\
+        FileMask: '*.ost'
+        Comment: "Offline Outlook Data File: M365, Exchange, IMAP"
+    -
+        Name: NST
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Outlook\
+        FileMask: '*.nst'
+        Comment: "Outlook Group Storage File: Group conversations and calendar"
+    -
+        Name: Outlook Attachment Temporary Storage
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\
+        Recursive: true
+        Comment: "Outlook temporary storage folder for user attachments"
+# Registry Hives
+    -
+        Name: SAM registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: 'SAM*'
+    -
+        Name: SAM registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: 'SAM*'
+    -
+        Name: SECURITY registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: 'SECURITY*'
+    -
+        Name: SECURITY registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: 'SECURITY*'
+    -
+        Name: SOFTWARE registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: 'SOFTWARE*'
+    -
+        Name: SOFTWARE registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: 'SOFTWARE*'
+    -
+        Name: SYSTEM registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: 'SYSTEM*'
+    -
+        Name: SYSTEM registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: 'SYSTEM*'
+    -
+        Name: RegBack registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\RegBack\
+        FileMask: '*.LOG*'
+    -
+        Name: RegBack registry transaction files
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\RegBack\
+        FileMask: '*.LOG*'
+    -
+        Name: Registry hive (RegBack)
+        Category: Registry
+        Path: C:\Windows\System32\config\RegBack\
+        FileMask: '*'
+    -
+        Name: Registry hive (RegBack)
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\RegBack\
+        FileMask: '*'
+    -
+        Name: System Profile registry hive
+        Category: Registry
+        Path: C:\Windows\System32\config\systemprofile\
+        FileMask: NTUSER*
+    -
+        Name: System Profile registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\systemprofile\
+        FileMask: NTUSER*
+    -
+        Name: Local Service registry hive
+        Category: Registry
+        Path: C:\Windows\ServiceProfiles\LocalService\
+        FileMask: NTUSER*
+    -
+        Name: Local Service registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\ServiceProfiles\LocalService\
+        FileMask: NTUSER*
+    -
+        Name: Network Service registry hive
+        Category: Registry
+        Path: C:\Windows\ServiceProfiles\NetworkService\
+        FileMask: NTUSER*
+    -
+        Name: Network Service registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\ServiceProfiles\NetworkService\
+        FileMask: NTUSER*
+    -
+        Name: System Restore Points Registry Hives (XP)
+        Category: Registry
+        Path: C:\System Volume Information\_restore*\RP*\snapshot\
+        FileMask: _REGISTRY_*
+# Prefetch
+    -
+        Name: Prefetch
+        Category: Prefetch
+        Path: C:\Windows\prefetch\
+        FileMask: '*.pf'
+# Recycling
+    -
+        Name: Recycle Bin - Windows Vista+
+        Category: FileDeletion
+        Path: C:\$Recycle.Bin\
+        FileMask: '$R*'
+        Recursive: true
+    -
+        Name: Recycle Bin - Windows Vista+
+        Category: FileDeletion
+        Path: C:\$Recycle.Bin\*\$R*\
+        Recursive: true
+    -
+        Name: RECYCLER - WinXP
+        Category: FileDeletion
+        Path: C:\RECYCLE*\
+        FileMask: 'D*'
+        Recursive: true
+    -
+        Name: Recycle Bin - Windows Vista+
+        Category: FileDeletion
+        Path: C:\$Recycle.Bin\
+        FileMask: '$I*'
+        Recursive: true
+    -
+        Name: RECYCLER - WinXP
+        Category: FileDeletion
+        Path: C:\RECYCLE*\
+        FileMask: 'INFO2'
+        Recursive: true
+# Scheduled Tasks
+    -
+        Name: at .job
+        Category: Persistence
+        Path: C:\Windows\Tasks\
+        FileMask: '*.job'
+    -
+        Name: at .job
+        Category: Persistence
+        Path: C:\Windows.old\Windows\Tasks\
+        FileMask: '*.job'
+    -
+        Name: at SchedLgU.txt
+        Category: Persistence
+        Path: C:\Windows\
+        FileMask: SchedLgU.txt
+    -
+        Name: at SchedLgU.txt
+        Category: Persistence
+        Path: C:\Windows.old\Windows\
+        FileMask: SchedLgU.txt
+    -
+        Name: XML
+        Category: Persistence
+        Path: C:\Windows\System32\Tasks\
+        Recursive: true
+    -
+        Name: XML
+        Category: Persistence
+        Path: C:\Windows.old\Windows\System32\Tasks\
+        Recursive: true
+# SRUM
+    -
+        Name: SRUM
+        Category: Execution
+        Path: C:\Windows\System32\SRU\
+        Recursive: true
+    -
+        Name: SRUM
+        Category: Execution
+        Path: C:\Windows.old\Windows\System32\SRU\
+        Recursive: true
+    -
+        Name: SOFTWARE registry hive
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: SOFTWARE
+    -
+        Name: SOFTWARE registry hive
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: SOFTWARE
+    -
+        Name: SOFTWARE registry transaction files
+        Category: Registry
+        Path: C:\Windows\System32\config\
+        FileMask: SOFTWARE.LOG*
+    -
+        Name: SOFTWARE registry transaction files
+        Category: Registry
+        Path: C:\Windows.old\Windows\System32\config\
+        FileMask: SOFTWARE.LOG*
+# USB
+    -
+        Name: Setupapi.log XP
+        Category: USBDevices
+        Path: C:\Windows\
+        FileMask: setupapi.log
+    -
+        Name: Setupapi.log Win7+
+        Category: USBDevices
+        Path: C:\Windows\inf\
+        FileMask: setupapi.dev.log
+    -
+        Name: Setupapi.log Win7+
+        Category: USBDevices
+        Path: C:\Windows.old\Windows\inf\
+        FileMask: setupapi.dev.log
+# Windows Firewall
+    -
+        Name: Windows Firewall Logs
+        Category: WindowsFirewallLogs
+        Path: C:\Windows\System32\LogFiles\Firewall\
+        FileMask: pfirewall.*
+    -
+        Name: Windows Firewall Logs
+        Category: WindowsFirewallLogs
+        Path: C:\Windows.old\Windows\System32\LogFiles\Firewall\
+        FileMask: pfirewall.*
+# OS Upgrade Artifact
+    -
+        Name: MigLog.xml
+        Category: OS Upgrade
+        Path: C:\Windows\Panther
+        FileMask: MigLog.xml
+    -
+        Name: Setupact.log
+        Category: OS Upgrade
+        Path: C:\Windows\Panther
+        FileMask: Setupact.log
+    -
+        Name: HumanReadable.xml
+        Category: OS Upgrade
+        Path: C:\Windows\Panther
+        FileMask: "*HumanReadable.xml"
+    -
+        Name: FolderMoveLog.txt
+        Category: OS Upgrade
+        Path: C:\Windows\Panther\Rollback
+        FileMask: FolderMoveLog.txt
+    -
+        Name: Update Store.db
+        Category: OS Upgrade
+        Path: C:\ProgramData\USOPrivate\UpdateStore
+        FileMask: store.db
+# McAfee
+    -
+        Name: McAfee ePO Logs
+        Category: Antivirus
+        Path: C:\ProgramData\McAfee\Endpoint Security\Logs\
+        Recursive: true
+    -
+        Name: McAfee Desktop Protection Logs XP
+        Category: Antivirus
+        Path: C:\Users\All Users\Application Data\McAfee\DesktopProtection\
+        Recursive: true
+    -
+        Name: McAfee Desktop Protection Logs
+        Category: Antivirus
+        Path: C:\ProgramData\McAfee\DesktopProtection\
+        Recursive: true
+    -
+        Name: McAfee Endpoint Security Logs
+        Category: Antivirus
+        Path: C:\ProgramData\McAfee\Endpoint Security\Logs\
+        Recursive: true
+    -
+        Name: McAfee Endpoint Security Logs
+        Category: Antivirus
+        Path: C:\ProgramData\McAfee\Endpoint Security\Logs_Old\
+        Recursive: true
+    -
+        Name: McAfee VirusScan Logs
+        Category: Antivirus
+        Path: C:\ProgramData\Mcafee\VirusScan\
+        Recursive: true
+    -
+        Name: McAfee Quarantine Files
+        Category: Antivirus
+        Path: C:\Quarantined\
+        Recursive: true
+# Malwarebytes
+    -
+        Name: MalwareBytes Anti-Malware Logs
+        Category: Antivirus
+        Path: C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\Logs\
+        FileMask: 'mbam-log-*.xml'
+    -
+        Name: MalwareBytes Anti-Malware Service Logs
+        Category: Antivirus
+        Path: C:\ProgramData\Malwarebytes\MBAMService\logs\
+        FileMask: mbamservice.log*
+    -
+        Name: MalwareBytes Anti-Malware Scan Logs
+        Category: Antivirus
+        Path: C:\Users\%user%\AppData\Roaming\Malwarebytes\Malwarebytes Anti-Malware\Logs\
+        Recursive: true
+    -
+        Name: MalwareBytes Anti-Malware Scan Results Logs
+        Category: Antivirus
+        Path: C:\ProgramData\Malwarebytes\MBAMService\ScanResults
+        Recursive: true
