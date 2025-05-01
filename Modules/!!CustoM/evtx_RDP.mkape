@@ -1,0 +1,18 @@
+Description: Logs all RDP events to a csv via powershell by looking for event IDs 1149, 21, 4624, 4625, and 1024.
+Category: CustoM
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8b03
+ExportFormat: csv
+Processors:
+
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "$header='RecordNumber,EventRecordId,TimeCreated,EventId,Level,Provider,Channel,ProcessId,ThreadId,Computer,ChunkNumber,UserId,MapDescription,UserName,RemoteHost,PayloadData1,PayloadData2,PayloadData3,PayloadData4,PayloadData5,PayloadData6,ExecutableInfo,HiddenRecord,SourceFile,Keywords,ExtraDataOffset,Payload'; $header | Set-Content '%destinationDirectory%\evtx_RDP_Events_Sorted.csv'; Get-Content '%sourceDirectory%\*\EventLogs\*.csv' | Select-String -Pattern ',(1149|21|4624|4625|1024)' | ForEach-Object { $_.Line } | Where-Object { $_ -NotMatch '- \(-\),Target:' } | Sort-Object { ($_ -split ',')[0] } | Add-Content '%destinationDirectory%\evtx_RDP_Events_Sorted.csv'"
+        ExportFormat: csv
+
+# 4624 - Successful account logon event.
+# 4625 - Failed account logon attempt.
+# 1149 - Remote Desktop Services: User initiated a remote session.
+# 1024 - User logged off from the system.
+# 21 - Remote Desktop Services: User disconnected from a remote session.

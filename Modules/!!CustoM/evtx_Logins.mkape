@@ -1,0 +1,15 @@
+Description: Logs all 4624/4625 to a csv via powershell
+Category: CustoM
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8b02
+ExportFormat: csv
+Processors:
+
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "Get-Content '%sourceDirectory%\*\EventLogs\*' | Select-String -Pattern ',(4624|4625)' | ForEach-Object { $_.Line } | Where-Object { $_ -NotMatch '- \(-\),Target:' } | ForEach-Object { $_.Line } | Sort-Object { ($_ -split ',')[0] } | Add-Content '%destinationDirectory%\evtx_Logons.csv'"
+        ExportFormat: csv
+
+# 4624 - Successful account logon event.
+# 4625 - Failed account logon attempt.

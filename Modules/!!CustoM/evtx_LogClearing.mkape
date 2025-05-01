@@ -1,0 +1,18 @@
+Description: Logs all the cleared logs to a csv via powershell by looking for event IDs 1102, 104, 517, 2004, and 2013.
+Category: CustoM
+Author: JonesCKevin
+Version: 1
+Id: d2bf7c18-c25b-42d3-930a-2c04f92a8b03
+ExportFormat: csv
+Processors:
+
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "Get-Content '%sourceDirectory%\*\EventLogs\*' | Select-String -Pattern '(1102|104|517|2004|2013).*Cleared' | ForEach-Object { $_.Line } | Add-Content '%destinationDirectory%\Cleared_Logs_Sorted.csv'"
+        ExportFormat: csv
+
+# 4624 - Successful account logon event.
+# 4625 - Failed account logon attempt.
+# 1149 - Remote Desktop Services: User initiated a remote session.
+# 1024 - User logged off from the system.
+# 21 - Remote Desktop Services: User disconnected from a remote session.
