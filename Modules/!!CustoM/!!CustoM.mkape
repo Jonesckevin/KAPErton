@@ -20,3 +20,7 @@ Processors:
         Executable: evtx_LogClearing.mkape
         CommandLine: ""
         ExportFormat: ""
+    -
+        Executable: evtx_PoE.mkape
+        CommandLine: ""
+        ExportFormat: ""
