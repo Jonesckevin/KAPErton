@@ -1,0 +1,3 @@
+# List of keywords to ignore in the forensic report
+# Add one keyword per line. Example:
+ArmouryCrate
