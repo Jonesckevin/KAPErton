@@ -1,49 +1,128 @@
-# KAPErton# KAPErton
+# KAPErton v2.0
 
-KAPErton is a PowerShell-based automation script designed to streamline the use of [KAPE (Kroll Artifact Parser and Extractor)](https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape). It simplifies the process of collecting forensic artifacts and running modules across multiple target sources.
+KAPErton is a PowerShell-based automation script designed to streamline the use of [KAPE (Kroll Artifact Parser and Extractor)](https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape). It simplifies the process of collecting forensic artifacts and running modules across multiple target sources with enhanced error handling, parameter support, and user-friendly features.
 
-## Features
+## 🚀 Quick Start
 
-- Automates the execution of KAPE commands for multiple source drives.
-- Supports dynamic destination paths labeled as `PE01`, `PE02`, etc., for each source.
-- Allows toggling of the `--mflush` option via a configurable variable.
-- Handles both target collection and module execution, including custom modules.
+```powershell
+# Show help and all available options
+.\KaperTon.ps1 -Help
 
-## Configuration
+# Run with default settings (interactive mode)
+.\KaperTon.ps1
 
-Before running the script, update the following variables in `KaperTon.ps1`:
+# Run silently with defaults
+.\KaperTon.ps1 -Silent
 
-- `$kapePath`: Path to the `kape.exe` executable.
-- `$TSourceList`: List of source drives to process (e.g., `@('C:', 'D:')`).
-- `$T`: Target collection profile (e.g., `!Triage - Singularity`).
-- `$M`: Modules to execute (e.g., `!!ToolSync,!EZParser`).
-- `$CustoM`: Custom modules to execute.
-- `$mflushEnabled`: Set to `$true` to include the `--mflush` option, or `$false` to exclude it.
+# Custom configuration
+.\KaperTon.ps1 -SourceDrives @('C:', 'D:') -DestinationDrive 'E:' -EnableMflush -Silent
+```
 
-## Usage
+## 📋 Features
 
-1. Ensure KAPE is installed and accessible at the path specified in `$kapePath`.
-2. Open `KaperTon.ps1` in a text editor and configure the variables as needed.
-3. Run the script in PowerShell with the following command:
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\KaperTon.ps1
-   ```
-4. The script will process each source drive in `$TSourceList` and output results to dynamically labeled directories (e.g., `E:\PE01`, `E:\PE02`).
+### Core Functionality
 
-## Example
+- Automates KAPE execution for multiple source drives
+- Dynamic destination paths labeled as `PE01`, `PE02`, etc.
+- Handles target collection, module execution, and custom modules
+- Automatic log cleanup after execution
 
-For a configuration with:
-- `$TSourceList = @('C:', 'D:')`
-- `$T = '!Triage - Singularity'`
-- `$mflushEnabled = $true`
+### Enhanced Features (v2.0)
 
-The script will:
-1. Collect targets from `C:` and `D:` into `E:\PE01` and `E:\PE02`.
-2. Execute modules and custom modules with the `--mflush` option enabled.
+- **Parameter Support**: Configure everything via command line parameters
+- **Validation Checks**: Automatic verification of KAPE executable and drive accessibility
+- **Error Handling**: Comprehensive error checking with detailed reporting
+- **Progress Tracking**: Visual feedback during long-running operations
+- **Silent Mode**: Automation-friendly execution without user prompts
+- **Help System**: Built-in help with examples and parameter descriptions
+- **Virtual Disk Integration**: Optional VirtualDiskHandler script support
 
-## Notes
+## 🔧 Configuration
 
-- Ensure you have the necessary permissions to access the source drives and write to the destination paths.
-- Review the KAPE documentation for details on available targets and modules.
-- Read the `Errors` because this script and repo only has files. You may need the default kape downloads to run the script with addit to these.
+### Command Line Parameters
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `-KapePath` | `.\kape.exe` | Path to KAPE executable |
+| `-SourceDrives` | `@('C:')` | Array of source drives |
+| `-DestinationDrive` | `J:` | Destination drive letter |
+| `-Targets` | `!BasicCollection,!Triage-Singularity` | Target collection string |
+| `-Modules` | `!EZParser` | Module processing string |
+| `-CustomModules` | `!!CustoM` | Custom module string |
+| `-EnableMflush` | `$false` | Enable module flush option |
+| `-CleanupLogs` | `$true` | Clean up logs after execution |
+| `-Silent` | `$false` | Run without user confirmation |
+| `-VirtualDisk` | `$false` | Enable virtual disk handler |
+
+## 📖 Usage Examples
+
+### Basic Usage
+
+```powershell
+# Interactive mode with confirmation prompts
+.\KaperTon.ps1
+
+# Silent execution with default settings
+.\KaperTon.ps1 -Silent
+```
+
+```powershell
+# Use parameters
+.\KaperTon.ps1 -KapePath '.\kape.exe' -SourceDrives @('C:', 'D:') -Silent
+```
+
+### Advanced Usage
+
+```powershell
+# Multiple drives with custom destination
+.\KaperTon.ps1 -SourceDrives @('C:', 'D:', 'E:') -DestinationDrive 'F:' -Silent
+
+# Enable module flush and virtual disk support
+.\KaperTon.ps1 -EnableMflush -VirtualDisk
+
+# Custom targets and modules
+.\KaperTon.ps1 -Targets '!SANS_Triage' -Modules '!EZParser,!SQLiteDB' -Silent
+```
+
+### Development/Testing
+
+```powershell
+# Keep logs for debugging
+.\KaperTon.ps1 -CleanupLogs:$false
+
+# Custom KAPE path
+.\KaperTon.ps1 -KapePath 'C:\Tools\KAPE\kape.exe' -Silent
+```
+
+## 🛠️ Prerequisites
+
+1. **KAPE Installation**: Ensure KAPE is installed and accessible
+2. **PowerShell Execution Policy**: May need to run as Administrator
+3. **Drive Access**: Ensure proper permissions for source and destination drives
+4. **Virtual Disk Handler** (Optional): Place `VirtualDiskHandler.ps1` in the same directory
+
+
+## 🤝 Support
+
+For detailed usage instructions, see [USAGE.md](USAGE.md).
+
+For issues or questions:
+
+1. Run `.\KaperTon.ps1 -Help` for built-in help
+2. Check the validation output for common issues
+3. Review KAPE documentation for target/module specifics
+4. Ensure all prerequisites are met
+
+## 📝 Notes
+
+- **Run as Administrator** for better system access to protected drives
+- **Use dedicated destination drive** to avoid space issues
+- **Test with single drive first** before processing multiple drives
+- Review KAPE documentation for available targets and modules
+- The script includes robust error handling but may require KAPE's default downloads for full functionality
+
+## 🔄 Version History
+
+- **v2.0**: Complete rewrite with parameter support, error handling, and enhanced UI
+- **v1.0**: Basic automation script with variable-based configuration
 
