@@ -1,3 +1,39 @@
+<#
+.SYNOPSIS
+    Legacy Virtual Disk Handler using Hyper-V cmdlets.
+.DESCRIPTION
+    This script creates and mounts VHDX virtual disks using Hyper-V cmdlets.
+    
+    NOTE: This script is DEPRECATED in favor of Mount-ForensicImage.ps1 which uses
+    Arsenal Image Mounter (AIM) for forensic image mounting. AIM provides:
+    - E01/EWF forensic image support
+    - No Hyper-V dependency
+    - Forensic-grade read-only or write-overlay mounting
+    - Support for VHD, VMDK, raw (dd), AFF4, qcow formats
+    
+    For forensic workflows, please use Invoke-ForensicWorkflow.ps1 instead.
+.NOTES
+    Part of KAPErton forensic workflow toolkit.
+    DEPRECATED - Use Mount-ForensicImage.ps1 for forensic image mounting.
+#>
+
+#Requires -Version 5.1
+
+Write-Warning @"
+DEPRECATED: VirtualDiskHandler.ps1 is deprecated.
+
+For forensic image mounting (E01, VHD, raw, etc.), please use:
+  - Mount-ForensicImage.ps1 - Direct AIM mounting functions
+  - Invoke-ForensicWorkflow.ps1 - Full automated workflow
+
+This script only creates new VHDX files using Hyper-V, which requires:
+  - Hyper-V Windows feature enabled
+  - Does NOT mount existing forensic images
+
+Press Enter to continue with legacy VHDX creation, or Ctrl+C to cancel.
+"@
+Read-Host
+
 # Prompt for case number
 $CaseNum = Read-Host "Please enter the Case Number [e.g 2025-001]"
 
